@@ -1,0 +1,580 @@
+openapi: 3.0.3
+info:
+  title: Scootin
+  description: 'Scootin API Documetation'
+  version: 1.0.0
+servers:
+  -
+    url: 'http://127.0.0.1:8000'
+paths:
+  /api/v1/login:
+    post:
+      summary: 'Mobile Client: Login'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: chaz.greenholt@example.com
+                password:
+                  type: string
+                  description: ''
+                  example: eos
+              required:
+                - email
+                - password
+  /api/v1/register:
+    post:
+      summary: 'Mobile Client: Register New'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: accusantium
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: gracie.langosh@example.org
+                password:
+                  type: string
+                  description: ''
+                  example: eum
+              required:
+                - name
+                - email
+                - password
+  '/api/v1/scooters/search/{name}':
+    get:
+      summary: 'Scooter: Search LIKE name'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example: []
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: name
+        description: ''
+        example: non
+        required: true
+        schema:
+          type: string
+  /api/v1/scooters/is-in-area:
+    post:
+      summary: 'Scooter: Search in area by status'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                lat_north_west:
+                  type: string
+                  description: ''
+                  example: reprehenderit
+                lng_north_west:
+                  type: string
+                  description: ''
+                  example: amet
+                lat_south_east:
+                  type: string
+                  description: ''
+                  example: iure
+                lng_south_east:
+                  type: string
+                  description: ''
+                  example: soluta
+                status:
+                  type: string
+                  description: ''
+                  example: consequuntur
+              required:
+                - lat_north_west
+                - lng_north_west
+                - lat_south_east
+                - lng_south_east
+  /api/v1/scooters:
+    get:
+      summary: 'Scooter: Get All'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    uuid: f73eae2c-2bb4-415b-859f-5abc73ebdb6d
+                    name: 'SCT Eusebio'
+                    color: '#00cc55'
+                    description: 'Iusto eaque repudiandae nam. Asperiores a natus omnis reiciendis rem. Nihil corporis velit fugiat ut dignissimos. Vel in voluptate unde error est et quia. Aut explicabo nesciunt non sit.'
+                    created_at: '2022-08-08T13:05:39.000000Z'
+                    updated_at: '2022-08-08T13:05:39.000000Z'
+                    distance_traveled: 33
+                    latest_point:
+                      status: free
+                      lat: 23.520481
+                      lng: 102.877471
+                      created_at: '2022-08-08'
+                      updated_at: '24 minutes ago'
+                  -
+                    uuid: 9ea206c5-3925-46bf-8a7f-0364db56e623
+                    name: 'SCT Stacey'
+                    color: '#005511'
+                    description: 'Asperiores quo quia ea sapiente. Vitae neque ipsum quibusdam omnis.'
+                    created_at: '2022-08-08T13:05:39.000000Z'
+                    updated_at: '2022-08-08T13:05:39.000000Z'
+                    distance_traveled: 91
+                    latest_point:
+                      status: free
+                      lat: 43.114815
+                      lng: 116.287671
+                      created_at: '2022-08-08'
+                      updated_at: '24 minutes ago'
+                  -
+                    uuid: 4e1d991b-4afb-4f2c-a075-243e4ad19226
+                    name: 'SCT Derek'
+                    color: '#00ee77'
+                    description: 'Architecto quam autem quia sit tempore aut. Excepturi voluptatem veniam nulla consequatur iste deleniti itaque.'
+                    created_at: '2022-08-08T13:05:39.000000Z'
+                    updated_at: '2022-08-08T13:05:39.000000Z'
+                    distance_traveled: 28
+                    latest_point:
+                      status: free
+                      lat: -25.039186
+                      lng: -85.33443
+                      created_at: '2022-08-08'
+                      updated_at: '24 minutes ago'
+                  -
+                    uuid: cbf8b2d5-39a6-4587-b80c-ec1e1e877c93
+                    name: 'SCT Merlin'
+                    color: '#0033ff'
+                    description: 'Ut fugiat nemo ex unde quisquam ipsum aut. Nam aut aut voluptatem corporis. Molestias a eaque officiis suscipit. Eaque harum consectetur repellendus.'
+                    created_at: '2022-08-08T13:05:39.000000Z'
+                    updated_at: '2022-08-08T13:05:39.000000Z'
+                    distance_traveled: 22
+                    latest_point:
+                      status: occupied
+                      lat: -61.01452
+                      lng: -131.413849
+                      created_at: '2022-08-08'
+                      updated_at: '24 minutes ago'
+                  -
+                    uuid: f51da175-a37f-49f5-a8f1-700a5c4a0eb0
+                    name: 'SCT Roberta'
+                    color: '#00aa00'
+                    description: 'Deleniti et nam accusantium omnis modi. In error qui repellendus facere et et.'
+                    created_at: '2022-08-08T13:05:39.000000Z'
+                    updated_at: '2022-08-08T13:05:39.000000Z'
+                    distance_traveled: 36
+                    latest_point:
+                      status: free
+                      lat: 40.636884
+                      lng: -16.899275
+                      created_at: '2022-08-08'
+                      updated_at: '25 minutes ago'
+      tags:
+        - Endpoints
+    post:
+      summary: 'Scooter: Create New'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: lnuychpjwwkokjqmxuvvbnexnavnkbtisrivfvqjnntcxdcirzgdehbgzpsicohhhwiynmxtoipfmfttwzimfioif
+                description:
+                  type: string
+                  description: 'Must not be greater than 500 characters.'
+                  example: qmvxyhhfbephlsssuovjecookttxdphyvghbkapkfvrthbicgjzjzvufdhncwbrragxtatmrsamwwejvrpwqfgrswpqytkymmwqqbikitbjaxv
+                color:
+                  type: string
+                  description: ''
+                  example: null
+              required:
+                - name
+  '/api/v1/scooters/{id}':
+    get:
+      summary: 'Scooter: Show'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    uuid: f73eae2c-2bb4-415b-859f-5abc73ebdb6d
+                    type: App\Http\Resources\ScooterResource
+                    attributes:
+                      name: 'SCT Eusebio'
+                      color: '#00cc55'
+                      description: 'Iusto eaque repudiandae nam. Asperiores a natus omnis reiciendis rem. Nihil corporis velit fugiat ut dignissimos. Vel in voluptate unde error est et quia. Aut explicabo nesciunt non sit.'
+                      updated_at: '2022-08-08T13:05:39.000000Z'
+                    latest_point:
+                      status: free
+                      lat: 23.520481
+                      lng: 102.877471
+                      created_at: '2022-08-08'
+                      updated_at: '24 minutes ago'
+                properties:
+                  data:
+                    type: object
+                    example:
+                      uuid: f73eae2c-2bb4-415b-859f-5abc73ebdb6d
+                      type: App\Http\Resources\ScooterResource
+                      attributes:
+                        name: 'SCT Eusebio'
+                        color: '#00cc55'
+                        description: 'Iusto eaque repudiandae nam. Asperiores a natus omnis reiciendis rem. Nihil corporis velit fugiat ut dignissimos. Vel in voluptate unde error est et quia. Aut explicabo nesciunt non sit.'
+                        updated_at: '2022-08-08T13:05:39.000000Z'
+                      latest_point:
+                        status: free
+                        lat: 23.520481
+                        lng: 102.877471
+                        created_at: '2022-08-08'
+                        updated_at: '24 minutes ago'
+      tags:
+        - Endpoints
+    put:
+      summary: 'Scooter: Update existing'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: ncculdgeefbcowgmyrwqvjbfzoujnhdhlhabminzcsneinabudnckncxvswezydeyjkedlpqcvandxicdkrfqirfwnntuwswanyixpeqsoygdxbjfimruruinbswxaeacgfpitqrkqbtqtnfvfxpksilxceqgtfvuhkrlzdnbwbmruqmwtozcv
+                description:
+                  type: string
+                  description: 'Must not be greater than 500 characters.'
+                  example: kqlyrkokwfuydnpwebiexsjvfhldvegkrrvlrvlqszgggaksfjqwperxjkxpyhljzenhfxekrettlocpfavvexmnondcslrjelmuaiipktikjqntlxlqorbqiymdksivmsxumeytnvegcpmmbcnowitzbexodcwaekomjcivkwkwpredftlhxglobifhrenryfvkjnvtajsqmzuuumjfmusgcotcsafmylljvwfdgfsdbsqxtrsohqpqfbmsjuzlcmfdnpeihibwodwkmpvtqzlwhgrdefkfqzxgbifkoosrnacvuseyayizrsbuyjvbyadsupadyzywvvohxgesyjbmquibgajgaqvtvvfs
+                color:
+                  type: string
+                  description: ''
+                  example: null
+              required:
+                - name
+    delete:
+      summary: 'Scooter: Delete existing'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the scooter.'
+        example: 1
+        required: true
+        schema:
+          type: string
+  /api/v1/user:
+    get:
+      summary: 'Mobile Client: Who am I'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+tags:
+  -
+    name: Endpoints
+    description: ''
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: ''
+security:
+  -
+    default: []

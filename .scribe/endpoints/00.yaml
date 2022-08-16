@@ -1,0 +1,361 @@
+name: Endpoints
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/login
+    metadata:
+      title: 'Mobile Client: Login'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: chaz.greenholt@example.com
+        type: string
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: eos
+        type: string
+        custom: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/register
+    metadata:
+      title: 'Mobile Client: Register New'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: accusantium
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: gracie.langosh@example.org
+        type: string
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: eum
+        type: string
+        custom: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/scooters/search/{name}'
+    metadata:
+      title: 'Scooter: Search LIKE name'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: non
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '[]'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '59'
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/scooters/is-in-area
+    metadata:
+      title: 'Scooter: Search in area by status'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      lat_north_west:
+        name: lat_north_west
+        description: ''
+        required: true
+        example: reprehenderit
+        type: string
+        custom: []
+      lng_north_west:
+        name: lng_north_west
+        description: ''
+        required: true
+        example: amet
+        type: string
+        custom: []
+      lat_south_east:
+        name: lat_south_east
+        description: ''
+        required: true
+        example: iure
+        type: string
+        custom: []
+      lng_south_east:
+        name: lng_south_east
+        description: ''
+        required: true
+        example: soluta
+        type: string
+        custom: []
+      status:
+        name: status
+        description: ''
+        required: false
+        example: consequuntur
+        type: string
+        custom: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/scooters
+    metadata:
+      title: 'Scooter: Get All'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '[{"uuid":"f73eae2c-2bb4-415b-859f-5abc73ebdb6d","name":"SCT Eusebio","color":"#00cc55","description":"Iusto eaque repudiandae nam. Asperiores a natus omnis reiciendis rem. Nihil corporis velit fugiat ut dignissimos. Vel in voluptate unde error est et quia. Aut explicabo nesciunt non sit.","created_at":"2022-08-08T13:05:39.000000Z","updated_at":"2022-08-08T13:05:39.000000Z","distance_traveled":33,"latest_point":{"status":"free","lat":23.520481,"lng":102.877471,"created_at":"2022-08-08","updated_at":"24 minutes ago"}},{"uuid":"9ea206c5-3925-46bf-8a7f-0364db56e623","name":"SCT Stacey","color":"#005511","description":"Asperiores quo quia ea sapiente. Vitae neque ipsum quibusdam omnis.","created_at":"2022-08-08T13:05:39.000000Z","updated_at":"2022-08-08T13:05:39.000000Z","distance_traveled":91,"latest_point":{"status":"free","lat":43.114815,"lng":116.287671,"created_at":"2022-08-08","updated_at":"24 minutes ago"}},{"uuid":"4e1d991b-4afb-4f2c-a075-243e4ad19226","name":"SCT Derek","color":"#00ee77","description":"Architecto quam autem quia sit tempore aut. Excepturi voluptatem veniam nulla consequatur iste deleniti itaque.","created_at":"2022-08-08T13:05:39.000000Z","updated_at":"2022-08-08T13:05:39.000000Z","distance_traveled":28,"latest_point":{"status":"free","lat":-25.039186,"lng":-85.33443,"created_at":"2022-08-08","updated_at":"24 minutes ago"}},{"uuid":"cbf8b2d5-39a6-4587-b80c-ec1e1e877c93","name":"SCT Merlin","color":"#0033ff","description":"Ut fugiat nemo ex unde quisquam ipsum aut. Nam aut aut voluptatem corporis. Molestias a eaque officiis suscipit. Eaque harum consectetur repellendus.","created_at":"2022-08-08T13:05:39.000000Z","updated_at":"2022-08-08T13:05:39.000000Z","distance_traveled":22,"latest_point":{"status":"occupied","lat":-61.01452,"lng":-131.413849,"created_at":"2022-08-08","updated_at":"24 minutes ago"}},{"uuid":"f51da175-a37f-49f5-a8f1-700a5c4a0eb0","name":"SCT Roberta","color":"#00aa00","description":"Deleniti et nam accusantium omnis modi. In error qui repellendus facere et et.","created_at":"2022-08-08T13:05:39.000000Z","updated_at":"2022-08-08T13:05:39.000000Z","distance_traveled":36,"latest_point":{"status":"free","lat":40.636884,"lng":-16.899275,"created_at":"2022-08-08","updated_at":"25 minutes ago"}}]'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '58'
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/scooters/{id}'
+    metadata:
+      title: 'Scooter: Show'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the scooter.'
+        required: true
+        example: 1
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"uuid":"f73eae2c-2bb4-415b-859f-5abc73ebdb6d","type":"App\\Http\\Resources\\ScooterResource","attributes":{"name":"SCT Eusebio","color":"#00cc55","description":"Iusto eaque repudiandae nam. Asperiores a natus omnis reiciendis rem. Nihil corporis velit fugiat ut dignissimos. Vel in voluptate unde error est et quia. Aut explicabo nesciunt non sit.","updated_at":"2022-08-08T13:05:39.000000Z"},"latest_point":{"status":"free","lat":23.520481,"lng":102.877471,"created_at":"2022-08-08","updated_at":"24 minutes ago"}}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '57'
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/scooters
+    metadata:
+      title: 'Scooter: Create New'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: lnuychpjwwkokjqmxuvvbnexnavnkbtisrivfvqjnntcxdcirzgdehbgzpsicohhhwiynmxtoipfmfttwzimfioif
+        type: string
+        custom: []
+      description:
+        name: description
+        description: 'Must not be greater than 500 characters.'
+        required: false
+        example: qmvxyhhfbephlsssuovjecookttxdphyvghbkapkfvrthbicgjzjzvufdhncwbrragxtatmrsamwwejvrpwqfgrswpqytkymmwqqbikitbjaxv
+        type: string
+        custom: []
+      color:
+        name: color
+        description: ''
+        required: false
+        example: null
+        type: string
+        custom: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/v1/scooters/{id}'
+    metadata:
+      title: 'Scooter: Update existing'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the scooter.'
+        required: true
+        example: 1
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: ncculdgeefbcowgmyrwqvjbfzoujnhdhlhabminzcsneinabudnckncxvswezydeyjkedlpqcvandxicdkrfqirfwnntuwswanyixpeqsoygdxbjfimruruinbswxaeacgfpitqrkqbtqtnfvfxpksilxceqgtfvuhkrlzdnbwbmruqmwtozcv
+        type: string
+        custom: []
+      description:
+        name: description
+        description: 'Must not be greater than 500 characters.'
+        required: false
+        example: kqlyrkokwfuydnpwebiexsjvfhldvegkrrvlrvlqszgggaksfjqwperxjkxpyhljzenhfxekrettlocpfavvexmnondcslrjelmuaiipktikjqntlxlqorbqiymdksivmsxumeytnvegcpmmbcnowitzbexodcwaekomjcivkwkwpredftlhxglobifhrenryfvkjnvtajsqmzuuumjfmusgcotcsafmylljvwfdgfsdbsqxtrsohqpqfbmsjuzlcmfdnpeihibwodwkmpvtqzlwhgrdefkfqzxgbifkoosrnacvuseyayizrsbuyjvbyadsupadyzywvvohxgesyjbmquibgajgaqvtvvfs
+        type: string
+        custom: []
+      color:
+        name: color
+        description: ''
+        required: false
+        example: null
+        type: string
+        custom: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/scooters/{id}'
+    metadata:
+      title: 'Scooter: Delete existing'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the scooter.'
+        required: true
+        example: 1
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/user
+    metadata:
+      title: 'Mobile Client: Who am I'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
